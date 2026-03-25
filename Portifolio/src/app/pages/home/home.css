@@ -1,0 +1,92 @@
+:host {
+  display: block;
+  padding-left: 10%;
+}
+
+.home-content {
+  max-width: 600px;
+  animation: slideUp 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 0.9;
+  margin: 0;
+  letter-spacing: -2px;
+  color: #fff;
+}
+
+h1 .text-highlight {
+  display: block;
+  color: var(--text-dim);
+  transition: color 0.5s;
+}
+
+h1:hover .text-highlight {
+  color: var(--accent);
+}
+
+.description {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-dim);
+  max-width: 450px;
+}
+
+.description strong {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Lista de Techs Estilo "Tags" */
+.tech-stack ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+  margin-top: 2rem;
+}
+
+.tech-stack li {
+  padding: 5px 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+:host {
+  display: block;
+  width: 100%; /* Garante que ocupe o espaço do pai */
+  max-width: 600px; /* Não deixa o texto ficar largo demais em monitores grandes */
+  margin: 0 auto; /* Auxílio extra na centralização */
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left; /* Mantém o texto alinhado à esquerda, mas o bloco centralizado */
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}

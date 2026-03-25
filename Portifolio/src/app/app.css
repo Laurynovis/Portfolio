@@ -1,0 +1,31 @@
+.main-layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: transparent;
+}
+
+.left-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  /* Uma borda sutil para separar sem esconder a neve */
+  border-right: 1px solid var(--border); 
+  z-index: 2;
+}
+
+.right-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.content-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
