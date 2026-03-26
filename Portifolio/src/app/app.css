@@ -31,7 +31,7 @@
 .content-container {
   width: 100%;
   max-width: 800px; /* Mais espaço para o seu H1 */
-  margin: 0 auto;
+  margin-left: 2vw;
   min-height: 100%; /* Garante que o container acompanhe o crescimento do conteúdo */
 }
 

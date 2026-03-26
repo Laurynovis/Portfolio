@@ -1,7 +1,4 @@
 <div class="carousel-wrapper">
-  
-  <button class="nav-btn prev" (click)="prev()">&#10094;</button>
-
   <div class="card-stack">
     @for (projeto of projetos(); track projeto.id; let i = $index) {
       <div class="project-card" 
@@ -18,11 +15,14 @@
           </button>
         </div>
 
+        <div class="nav-container">
+          <button class="nav-btn" (click)="prev()">&#10094;</button>
+          <div class="nav-divider"></div>
+          <button class="nav-btn" (click)="next()">&#10095;</button>
+        </div>
+
         <div class="card-index">{{ i + 1 }} / {{ projetos().length }}</div>
       </div>
     }
   </div>
-
-  <button class="nav-btn next" (click)="next()">&#10095;</button>
-
 </div>
