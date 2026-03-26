@@ -1,6 +1,8 @@
-import { Component, signal, computed } from '@angular/core';
+// src/app/components/radial-carousel/radial-carousel.component.ts
+import { Component, signal, input } from '@angular/core'; // Adicione o 'input'
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Projeto } from '../../core/models/projeto.model'; // Importe a interface
 
 @Component({
   selector: 'app-radial-carousel',
@@ -10,28 +12,24 @@ import { CommonModule } from '@angular/common';
   styleUrl: './radial-carousel.css'
 })
 export class RadialCarouselComponent {
-  // Lista de projetos usando Signal
-  protected readonly projects = signal([
-    { id: 'p1', title: 'Sistema de Academia', tech: 'Mendix Low-Code', desc: 'Gestão completa de treinos e alunos.' },
-    { id: 'p2', title: 'Paciência Spider', tech: 'Swift / iOS', desc: 'Jogo clássico com arquitetura funcional.' },
-    { id: 'p3', title: 'E-commerce API', tech: 'C# / .NET', desc: 'Backend robusto com SQL Server.' },
-    { id: 'p4', title: 'Dashboard', tech: 'Angular', desc: 'Visualização de dados em tempo real.' }
-  ]);
+  
+  // Isso substitui o @Input(). Diz que o componente RECEBE uma lista de projetos.
+  // O .required obriga quem usar o carrossel a passar essa lista, senão dá erro.
+  public projetos = input.required<Projeto[]>();
 
   protected currentIndex = signal(0);
 
   constructor(private router: Router) {}
 
-  // Navegação do Carrossel
   next() {
-    this.currentIndex.update(i => (i + 1) % this.projects().length);
+    // Como 'projetos' agora é um signal de input, chamamos com parênteses: this.projetos()
+    this.currentIndex.update(i => (i + 1) % this.projetos().length);
   }
 
   prev() {
-    this.currentIndex.update(i => (i - 1 + this.projects().length) % this.projects().length);
+    this.currentIndex.update(i => (i - 1 + this.projetos().length) % this.projetos().length);
   }
 
-  // Navegação de Rota
   verProjeto(id: string) {
     this.router.navigate(['/projeto', id]);
   }

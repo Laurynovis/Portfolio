@@ -3,22 +3,22 @@
   <button class="nav-btn prev" (click)="prev()">&#10094;</button>
 
   <div class="card-stack">
-    @for (project of projects(); track project.id; let i = $index) {
+    @for (projeto of projetos(); track projeto.id; let i = $index) {
       <div class="project-card" 
            [class.active]="i === currentIndex()"
            [class.hidden]="i !== currentIndex()">
         
         <div class="card-content">
-          <span class="tech-tag">{{ project.tech }}</span>
-          <h2>{{ project.title }}</h2>
-          <p>{{ project.desc }}</p>
+          <span class="tech-tag">{{ projeto.tech }}</span>
+          <h2>{{ projeto.title }}</h2>
+          <p>{{ projeto.shortDesc }}</p>
           
-          <button class="view-btn" (click)="verProjeto(project.id)">
+          <button class="view-btn" (click)="verProjeto(projeto.id)">
             Ver detalhes
           </button>
         </div>
 
-        <div class="card-index">{{ i + 1 }} / {{ projects().length }}</div>
+        <div class="card-index">{{ i + 1 }} / {{ projetos().length }}</div>
       </div>
     }
   </div>
