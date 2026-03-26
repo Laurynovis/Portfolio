@@ -1,21 +1,23 @@
 <div class="main-layout">
-  
+
   <section class="left-side">
     <div class="content-container">
       <router-outlet></router-outlet>
-      
+
+      <!-- Carrossel para MOBILE -->
+      <div class="mobile-carousel">
+        <app-radial-carousel
+          [projetos]="listaProjetos()">
+        </app-radial-carousel>
+      </div>
     </div>
-
-    
-
   </section>
 
+  <!-- Carrossel fixo para DESKTOP -->
   <section class="right-side">
-    <app-radial-carousel [projetos]="listaProjetos()"></app-radial-carousel>
-
-    
-   
-
+    <app-radial-carousel
+      [projetos]="listaProjetos()">
+    </app-radial-carousel>
   </section>
 
 </div>

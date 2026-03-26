@@ -1,48 +1,30 @@
-/* app.css */
+/* ===== DESKTOP ===== */
 
 .main-layout {
   display: flex;
   width: 100vw;
   height: 100vh;
-  overflow: hidden; /* Mantém a janela principal travada */
-  background: transparent;
+  overflow: hidden;
 }
-
-/* app.css */
 
 .left-side {
   flex: 1;
   height: 100vh;
-  /* MUDANÇA CRUCIAL: display block garante que o conteúdo comece no 0,0 */
-  display: block; 
   overflow-y: auto;
   overflow-x: hidden;
-  scroll-behavior: smooth;
-  
-  /* Esconde a barra como você queria */
   scrollbar-width: none;
-  -ms-overflow-style: none;
-  
   border-right: 1px solid var(--border);
-  z-index: 2;
 }
 
+.left-side::-webkit-scrollbar {
+  display: none;
+}
 
 .content-container {
   width: 100%;
-  max-width: 800px; /* Mais espaço para o seu H1 */
+  max-width: 800px;
   margin-left: 2vw;
-  min-height: 100%; /* Garante que o container acompanhe o crescimento do conteúdo */
-}
-
-/* Esconde no Chrome, Safari e Edge Moderno */
-.left-side::-webkit-scrollbar {
-  display: none; 
-}
-
-.left-side::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 10px;
+  padding-bottom: 150px;
 }
 
 .right-side {
@@ -50,8 +32,41 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
-  /* O lado direito não tem overflow, então o carrossel fica sempre "parado" no centro */
-  overflow: hidden; 
+  overflow: hidden;
 }
 
+.mobile-carousel {
+  display: none;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+
+  /* 🔥 DEVOLVE O SCROLL PARA O BODY */
+  .main-layout {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+
+  .left-side {
+    height: auto;
+    overflow: visible; /* 🔑 */
+    border-right: none;
+  }
+
+  .content-container {
+    margin: 0;
+    padding: 0 20px 200px;
+  }
+
+  .right-side {
+    display: none;
+  }
+
+  .mobile-carousel {
+    display: block;
+    margin-top: 80px;
+  }
+}
