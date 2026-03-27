@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "Portifolio": {
+    "Portfolio": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -15,6 +15,7 @@
       "prefix": "app",
       "architect": {
         "build": {
+          "outputPath": "dist",
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
@@ -57,10 +58,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Portifolio:build:production"
+              "buildTarget": "Portfolio:build:production"
             },
             "development": {
-              "buildTarget": "Portifolio:build:development"
+              "buildTarget": "Portfolio:build:development"
             }
           },
           "defaultConfiguration": "development"
