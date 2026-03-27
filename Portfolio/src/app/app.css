@@ -1,20 +1,30 @@
+/* ===== DESKTOP ===== */
+
 .main-layout {
   display: flex;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: transparent;
 }
 
 .left-side {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 40px;
-  /* Uma borda sutil para separar sem esconder a neve */
-  border-right: 1px solid var(--border); 
-  z-index: 2;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  border-right: 1px solid var(--border);
+}
+
+.left-side::-webkit-scrollbar {
+  display: none;
+}
+
+.content-container {
+  width: 100%;
+  max-width: 800px;
+  margin-left: 2vw;
+  padding-bottom: 120px;
 }
 
 .right-side {
@@ -22,10 +32,89 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
 }
 
-.content-container {
+/* ===== DESKTOP PROJECTS ===== */
+
+.desktop-projects {
+  width: 100%;
   max-width: 600px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* ===== TITULO ===== */
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  transform: translateX(-50%);
+}
+
+/* ===== MOBILE ===== */
+
+.mobile-projects {
+  display: none;
+}
+
+.mobile-carousel {
+  margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+
+  .main-layout {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+
+  .left-side {
+    height: auto;
+    overflow: visible;
+    border-right: none;
+  }
+
+  .content-container {
+    margin: 0;
+    padding: 0 20px 120px;
+  }
+
+  .right-side {
+    display: none;
+  }
+
+  /* ✅ CORREÇÃO PRINCIPAL */
+  .mobile-projects {
+    display: block;
+    margin-top: 60px; /* antes era 120px */
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+    text-align: left;
+    margin-bottom: 16px;
+  }
+
+  .section-title::after {
+    left: 0;
+    transform: none;
+  }
 }

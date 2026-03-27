@@ -13,7 +13,7 @@ export function startSnowfall() {
   };
 
   const createFlakes = () => {
-    snowflakes = Array.from({ length: 200 }, () => ({
+    snowflakes = Array.from({ length: 150 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
       r: Math.random() * 2 + 1,

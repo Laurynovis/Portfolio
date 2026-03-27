@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RadialCarouselComponent } from './radial-carousel';
+import { Timeline } from './timeline';
 
-describe('RadialCarousel', () => {
-  let component: RadialCarouselComponent;
-  let fixture: ComponentFixture<RadialCarouselComponent>;
+describe('Timeline', () => {
+  let component: Timeline;
+  let fixture: ComponentFixture<Timeline>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RadialCarouselComponent],
+      imports: [Timeline],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(RadialCarouselComponent);
+    fixture = TestBed.createComponent(Timeline);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

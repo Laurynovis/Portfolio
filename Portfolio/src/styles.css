@@ -23,8 +23,12 @@ body, html {
   background-color: var(--bg-dark); 
   color: var(--text-main);
   font-family: 'Inter', sans-serif;
-  overflow: hidden; 
+  
+  overflow-x: hidden;
+  overflow-y: auto;
+
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Configuração do Canvas */
