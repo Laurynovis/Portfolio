@@ -15,7 +15,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "outputPath": "dist",
+          
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
